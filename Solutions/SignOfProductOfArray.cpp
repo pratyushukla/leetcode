@@ -1,10 +1,11 @@
 class Solution {
 public:
     int arraySign(vector<int>& nums) {
-        long long product = 1;
-        for(auto& x : nums) product = (product % 1000000007) * x;
-        if(product < 0) return -1;
-        else if(product == 0) return 0;
-        else return 1;
+        int neg=0;
+        for(int n:nums){
+            if(n==0) return 0;
+            neg+=n<0 ?1:0;
+        }
+        return neg&1?-1:1;
     }
 };
